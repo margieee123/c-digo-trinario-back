@@ -4,14 +4,12 @@ public class LoginCommand {
 
     private String correo;
     private String password;
-    private String ip;
 
     public LoginCommand() {}
 
-    public LoginCommand(String correo, String password, String ip) {
+    public LoginCommand(String correo, String password) {
         this.correo = correo;
         this.password = password;
-        this.ip = ip;
     }
 
     public String getCorreo() { return correo; }
@@ -19,7 +17,4 @@ public class LoginCommand {
 
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
-
-    public String getIp() { return ip; }
-    public void setIp(String ip) { this.ip = ip; }
 }
