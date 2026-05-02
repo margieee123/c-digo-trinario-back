@@ -13,8 +13,8 @@ class SpaManagerApplicationTests {
 	@Test
 	void generarHash() {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		String hash = encoder.encode("admin123");
-		System.out.println("Hash: " + hash);
+		System.out.println("Admin:          " + encoder.encode("admin123"));
+		System.out.println("Terapeuta:      " + encoder.encode("terap123"));
+		System.out.println("Recepcionista:  " + encoder.encode("recep123"));
 	}
-
 }

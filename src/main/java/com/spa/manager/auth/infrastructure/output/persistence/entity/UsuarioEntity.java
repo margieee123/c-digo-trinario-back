@@ -5,7 +5,7 @@ import com.spa.manager.auth.domain.model.Rol;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Usuarios")
+@Table(name = "usuarios")
 public class UsuarioEntity {
 
     @Id

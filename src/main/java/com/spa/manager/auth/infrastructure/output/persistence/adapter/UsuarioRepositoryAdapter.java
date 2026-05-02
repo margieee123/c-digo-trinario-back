@@ -32,6 +32,18 @@ public class UsuarioRepositoryAdapter implements UsuarioRepositoryPort {
     }
 
     @Override
+    public java.util.List<Usuario> findAll() {
+        return jpaRepository.findAll()
+                .stream()
+                .map(mapper::toDomain)
+                .collect(java.util.stream.Collectors.toList());
+    }
+
+    @Override
+    public Optional<Usuario> findById(Integer id) {
+        return jpaRepository.findById(id).map(mapper::toDomain);
+    }
+    @Override
     public Usuario save(Usuario usuario) {
         UsuarioEntity entity = mapper.toEntity(usuario);
         UsuarioEntity saved = jpaRepository.save(entity);
