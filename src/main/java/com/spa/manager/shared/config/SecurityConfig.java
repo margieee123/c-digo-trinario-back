@@ -66,7 +66,9 @@ public class SecurityConfig {
         "http://localhost:4200",
         "http://localhost:5173",
         "http://localhost:8080",
-        "http://3.16.150.180:4200"
+        "http://3.16.150.180:4200",
+        "http://spaapp.ddns.net",
+        "http://spaapp.ddns.net:4200"
 ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
