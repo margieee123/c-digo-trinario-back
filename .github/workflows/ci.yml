@@ -40,6 +40,9 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
 
+      - name: Dar permisos a mvnw
+        run: chmod +x mvnw
+
       - name: Ejecutar tests
         env:
           DB_URL: jdbc:mysql://localhost:3306/spa_manager_test
