@@ -10,7 +10,10 @@ public class Calificacion {
     private String comentario;
     private LocalDate fecha;
 
-    public Calificacion() {}
+    public Calificacion() {
+        // Constructor requerido por frameworks de serialización
+
+    }
 
     public Integer getIdCalificacion() { return idCalificacion; }
     public void setIdCalificacion(Integer idCalificacion) { this.idCalificacion = idCalificacion; }

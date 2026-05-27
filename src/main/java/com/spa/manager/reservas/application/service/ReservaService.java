@@ -239,7 +239,7 @@ public class ReservaService implements CrearReservaUseCase, ListarReservasUseCas
 
         if (terapeutas.isEmpty()) return Optional.empty();
 
-        LocalDate lunes = fecha.minusDays(fecha.getDayOfWeek().getValue() - 1);
+        LocalDate lunes = fecha.minusDays(fecha.getDayOfWeek().getValue() - 1L);
         LocalDate domingo = lunes.plusDays(6);
 
         List<UsuarioEntity> disponibles = terapeutas.stream()
@@ -309,7 +309,7 @@ public class ReservaService implements CrearReservaUseCase, ListarReservasUseCas
 
         LocalTime horaFin = request.getHoraInicio().plusMinutes(duracionTotal);
 
-        LocalDate lunes = request.getFecha().minusDays(request.getFecha().getDayOfWeek().getValue() - 1);
+        LocalDate lunes = request.getFecha().minusDays(request.getFecha().getDayOfWeek().getValue() - 1L);
         LocalDate domingo = lunes.plusDays(6);
 
         List<UsuarioEntity> terapeutas = usuarioRepository.findAll().stream()
