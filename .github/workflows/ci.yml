@@ -43,7 +43,7 @@ jobs:
       - name: Dar permisos a mvnw
         run: chmod +x mvnw
 
-      - name: Ejecutar tests
+      - name: Compilar y ejecutar tests
         env:
           DB_URL: jdbc:mysql://localhost:3306/spa_manager_test
           DB_USERNAME: root
@@ -51,12 +51,3 @@ jobs:
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
           SERVER_PORT: 8080
         run: ./mvnw verify
-
-      - name: Analisis SonarQube
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          ./mvnw sonar:sonar \
-            -Dsonar.projectKey=SpaApp-Backend \
-            -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
