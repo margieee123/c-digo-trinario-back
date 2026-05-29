@@ -1,6 +1,8 @@
+
 package com.spa.manager.shared.config;
 
 import com.spa.manager.shared.security.JwtAuthFilter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -24,6 +26,9 @@ public class SecurityConfig {
 
     private final JwtAuthFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
+
+    @Value("${cors.allowed.origin.ip:http://localhost:4200}")
+    private String corsAllowedOriginIp;
 
     public SecurityConfig(JwtAuthFilter jwtAuthFilter,
                           AuthenticationProvider authenticationProvider) {
@@ -63,14 +68,14 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(List.of(
-        "http://localhost:3000",
-        "http://localhost:4200",
-        "http://localhost:5173",
-        "http://localhost:8080",
-        "http://3.16.150.180:4200",
-        "http://spaapp.ddns.net",
-        "http://spaapp.ddns.net:4200"
-));
+                "http://localhost:3000",
+                "http://localhost:4200",
+                "http://localhost:5173",
+                "http://localhost:8080",
+                corsAllowedOriginIp,
+                "http://spaapp.ddns.net",
+                "http://spaapp.ddns.net:4200"
+        ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
